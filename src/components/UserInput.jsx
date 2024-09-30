@@ -1,47 +1,51 @@
 import React, { useState } from "react";
 
-const UserInput = () => {
-  const [initialInvestment, setInitialInvestment] = useState(0);
-  const [annualInvestment, setAnnualInvestment] = useState(0);
-  const [expectedReturn, setExpectedReturn] = useState(0);
-  const [duration, setDuration] = useState(0);
+const UserInput = ({ annualData, setAnnualData }) => {
   return (
     <div id="user-input">
       <div className="input-group">
-        <div>
+        <p>
           <label>initial investment</label>
           <input
             type="number"
-            value={initialInvestment}
-            onChange={(e) => setInitialInvestment(e.target.valueAsNumber)}
+            value={annualData.initialInvestment}
+            onChange={(e) =>
+              setAnnualData({ ...annualData, initialInvestment: +e.target.value })
+            }
           />
-        </div>
-        <div>
+        </p>
+        <p>
           <label>Annual investment</label>
           <input
             type="number"
-            value={annualInvestment}
-            onChange={(e) => setAnnualInvestment(e.target.valueAsNumber)}
+            value={annualData.annualInvestment}
+            onChange={(e) =>
+              setAnnualData({ ...annualData, annualInvestment: +e.target.value })
+            }
           />
-        </div>
+        </p>
       </div>
       <div className="input-group">
-        <div>
+        <p>
           <label>Expected return</label>
           <input
             type="number"
-            value={expectedReturn}
-            onChange={(e) => setExpectedReturn(e.target.valueAsNumber)}
+            value={annualData.expectedReturn}
+            onChange={(e) =>
+              setAnnualData({ ...annualData, expectedReturn: +e.target.value })
+            }
           />
-        </div>
-        <div>
+        </p>
+        <p>
           <label>Duration</label>
           <input
             type="number"
-            value={duration}
-            onChange={(e) => setDuration(e.target.valueAsNumber)}
+            value={annualData.duration}
+            onChange={(e) =>
+              setAnnualData({ ...annualData, duration: +e.target.value })
+            }
           />
-        </div>
+        </p>
       </div>
     </div>
   );
